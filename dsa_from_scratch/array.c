@@ -1,10 +1,10 @@
 /*
-## An array is a continguous chunk of memory spaces, where each single memory space
-## can hold a piece of data. To implement an array we'll need:
-##
-## 1. A starting address for our memory chunk we can call `head`
-## 2. The length of our continguous chunk of memory
-## 3. The actual contiguous memory spaces "freed" for use
+An array is a continguous chunk of memory spaces, where each single memory space
+can hold a piece of data. To implement an array we'll need:
+
+1. A starting address for our memory chunk we can call `head`
+2. The length of our continguous chunk of memory
+3. The actual contiguous memory spaces "freed" for use
 */
 #include <stdio.h>
 #include <stdlib.h>
