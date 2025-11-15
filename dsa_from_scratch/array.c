@@ -22,14 +22,14 @@ Array create_array(int length) {
     array.head = head;
     array.length = length;
     return array;
-};
+}
 
 
 void destroy_array(Array* array) {
     free(array->head);
     array->head = NULL;
     array->length = 0;
-};
+}
 
 
 void print_array(Array array) {
@@ -40,7 +40,7 @@ void print_array(Array array) {
         printf("\t%d,\n", array.head[i]);
     }
     printf("]\n");
-};
+}
 
 
 void set_value(Array array, int index, int value) {
@@ -49,7 +49,7 @@ void set_value(Array array, int index, int value) {
         return;
     }
     array.head[index] = value;
-};
+}
 
 
 int get_value(Array array, int index) {
@@ -58,7 +58,7 @@ int get_value(Array array, int index) {
         return 0;
     }
     return array.head[index];
-};
+}
 
 
 int main() {
@@ -76,4 +76,4 @@ int main() {
     destroy_array(&array2);
     print_array(array2);
     return 0;
-};
+}
