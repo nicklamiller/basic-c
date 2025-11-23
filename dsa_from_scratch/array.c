@@ -54,6 +54,15 @@ int get_value(Array array, int index) {
     return array.head[index];
 }
 
+Array slice_array(Array array, int start, int end) {
+    int sliced_array_size = end - start;
+    Array sliced_array = create_array(sliced_array_size);
+    for (int i = 0; i < sliced_array_size; i++) {
+        set_value(sliced_array, i, array.head[start + i]);
+    }
+    return sliced_array;
+}
+
 
 int main() {
     int arr1_length = 7;
@@ -69,5 +78,16 @@ int main() {
     print_array(array2);
     destroy_array(&array2);
     print_array(array2);
+    printf("----------------Test slicing----------------\n");
+    Array array3 = create_array(5);
+    for (int j = 0; j < 5; j++) {
+        set_value(array3, j, j*2);
+    }
+    printf("Original array:\n");
+    print_array(array3);
+    printf("Various slices:\n");
+    print_array(slice_array(array3, 0, 3));
+    print_array(slice_array(array3, 2, 5));
+    print_array(slice_array(array3, 4, 5));
     return 0;
 }
