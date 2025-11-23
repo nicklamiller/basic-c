@@ -8,13 +8,7 @@ can hold a piece of data. To implement an array we'll need:
 */
 #include <stdio.h>
 #include <stdlib.h>
-
-
-typedef struct {
-    int* head;
-    int length;
-} Array;
-
+#include "array.h"
 
 Array create_array(int length) {
     int* head = (int*)malloc(length * sizeof(int));
