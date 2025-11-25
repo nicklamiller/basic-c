@@ -8,12 +8,8 @@ reached the end of our linked list, in which case the pointer would be NULL. To 
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include "linked_list.h"
 
-
-typedef struct Node {
-    int data;
-    struct Node* next;
-} Node;
 
 
 void print_node(Node* node) {
@@ -73,28 +69,28 @@ void destroy_linked_list(Node* head) {
 }
 
 
-int main() {
-    printf("------------------------Test printing------------------------\n");
-    Node* first = malloc(sizeof(Node));
-    Node* second = malloc(sizeof(Node));
-    first->data = 1;
-    first->next = second;
-    second->data = 2;
-    second->next = NULL;
-    print_linked_list(first);
+// int main() {
+//     printf("------------------------Test printing------------------------\n");
+//     Node* first = malloc(sizeof(Node));
+//     Node* second = malloc(sizeof(Node));
+//     first->data = 1;
+//     first->next = second;
+//     second->data = 2;
+//     second->next = NULL;
+//     print_linked_list(first);
 
-    printf("------------------------Test inserting @ head------------------------\n");
-    Node* zeroth = insert_head(first, 0);
-    print_linked_list(zeroth);
+//     printf("------------------------Test inserting @ head------------------------\n");
+//     Node* zeroth = insert_head(first, 0);
+//     print_linked_list(zeroth);
 
-    printf("------------------------Test getting value------------------------\n");
-    get_value(zeroth, 1);
+//     printf("------------------------Test getting value------------------------\n");
+//     get_value(zeroth, 1);
 
-    printf("------------------------Test setting value------------------------\n");
-    set_value(zeroth, 1, 100);
-    get_value(zeroth, 1);
+//     printf("------------------------Test setting value------------------------\n");
+//     set_value(zeroth, 1, 100);
+//     get_value(zeroth, 1);
 
-    printf("------------------------Test destroying linked list------------------------\n");
-    destroy_linked_list(zeroth);
-    return 0;
-};
+//     printf("------------------------Test destroying linked list------------------------\n");
+//     destroy_linked_list(zeroth);
+//     return 0;
+// };
