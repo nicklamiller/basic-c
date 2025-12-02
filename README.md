@@ -1,1 +1,2 @@
-Following along basic C exercises from https://www.geeksforgeeks.org/c-programming-examples/
+Implementing and testing basic data structures and algorithms in C. 
+
