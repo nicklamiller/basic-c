@@ -9,15 +9,15 @@ void test_create_array() {
     int length1 = 5;
     Array array1 = create_array(length1);
     for (int i = 0; i < length1; i++) {
-        TEST_ASSERT_EQUAL_INT(array1.head[i], NULL);    
+        TEST_ASSERT_EQUAL_INT(NULL, array1.head[i]);    
     }
-    TEST_ASSERT_EQUAL_INT(array1.length, length1);
+    TEST_ASSERT_EQUAL_INT(length1, array1.length);
     int length2 = 1;
     Array array2 = create_array(length2);
     for (int i = 0; i < length2; i++) {
-        TEST_ASSERT_EQUAL_INT(array2.head[i], NULL);    
+        TEST_ASSERT_EQUAL_INT(NULL, array2.head[i]);    
     }
-    TEST_ASSERT_EQUAL_INT(array2.length, length2);
+    TEST_ASSERT_EQUAL_INT(length2, array2.length);
 }
 
 void test_set_value() {
@@ -27,7 +27,7 @@ void test_set_value() {
         set_value(array, i, i*2);
     }
     for (int i = 0; i < length; i++) {
-        TEST_ASSERT_EQUAL_INT(array.head[i], i*2);
+        TEST_ASSERT_EQUAL_INT(i*2, array.head[i]);
     }
 }
 
@@ -38,7 +38,7 @@ void test_get_value() {
         set_value(array, i, i*2);
     }
     for (int i = 0; i < length; i++) {
-        TEST_ASSERT_EQUAL_INT(get_value(array, i), i*2);
+        TEST_ASSERT_EQUAL_INT(i*2, get_value(array, i));
     }
 }
 
@@ -50,20 +50,20 @@ void test_slice_array() {
     }
 
     Array first_slice = slice_array(array, 0, 3);
-    TEST_ASSERT_EQUAL_INT(first_slice.length, 3);
+    TEST_ASSERT_EQUAL_INT(3, first_slice.length);
     for (int i = 0; i < first_slice.length; i++) {
-        TEST_ASSERT_EQUAL_INT(first_slice.head[i], i*2);
+        TEST_ASSERT_EQUAL_INT(i*2, first_slice.head[i]);
     }
 
     Array second_slice = slice_array(array, 2, 5);
-    TEST_ASSERT_EQUAL_INT(second_slice.length, 3);
-    TEST_ASSERT_EQUAL_INT(second_slice.head[0], 4);
-    TEST_ASSERT_EQUAL_INT(second_slice.head[1], 6);
-    TEST_ASSERT_EQUAL_INT(second_slice.head[2], 8);
+    TEST_ASSERT_EQUAL_INT(3, second_slice.length);
+    TEST_ASSERT_EQUAL_INT(4, second_slice.head[0]);
+    TEST_ASSERT_EQUAL_INT(6, second_slice.head[1]);
+    TEST_ASSERT_EQUAL_INT(8, second_slice.head[2]);
 
     Array third_slice = slice_array(array, 4, 5);
-    TEST_ASSERT_EQUAL_INT(third_slice.length, 1);
-    TEST_ASSERT_EQUAL_INT(third_slice.head[0], 8);
+    TEST_ASSERT_EQUAL_INT(1, third_slice.length);
+    TEST_ASSERT_EQUAL_INT(8, third_slice.head[0]);
 }
 
 int main() {

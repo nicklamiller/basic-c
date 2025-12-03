@@ -19,10 +19,10 @@ void test_insert_head() {
     Node* first = malloc(sizeof(Node));
     Node* second = malloc(sizeof(Node));
     int og_count = count_linked_list_size(first);
-    TEST_ASSERT_EQUAL_INT(og_count, 2);
+    TEST_ASSERT_EQUAL_INT(2, og_count);
     Node* zeroth = insert_head(first, 0);
     int updated_count = count_linked_list_size(zeroth);
-    TEST_ASSERT_EQUAL_INT(updated_count, 3);
+    TEST_ASSERT_EQUAL_INT(3, updated_count);
 }
 
 int main() {
