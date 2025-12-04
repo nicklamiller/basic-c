@@ -25,7 +25,28 @@ void test_insert_head() {
     TEST_ASSERT_EQUAL_INT(3, updated_count);
 }
 
+void test_get_set_value() {
+    Node* first = malloc(sizeof(Node));
+    Node* second = malloc(sizeof(Node));
+    first->data = 1;
+    first->next = second;
+    second->data = 2;
+    second->next = NULL;
+    Node* zeroth = insert_head(first, 0);
+    TEST_ASSERT_EQUAL_INT(0, get_value(zeroth, 0)->data);
+    TEST_ASSERT_EQUAL_INT(1, get_value(zeroth, 1)->data);
+    TEST_ASSERT_EQUAL_INT(2, get_value(zeroth, 2)->data);
+    set_value(zeroth, 1, 0);
+    set_value(zeroth, 1, 3214);
+    set_value(zeroth, 2, 132);
+    TEST_ASSERT_EQUAL_INT(0, get_value(zeroth, 0)->data);
+    TEST_ASSERT_EQUAL_INT(3214, get_value(zeroth, 1)->data);
+    TEST_ASSERT_EQUAL_INT(132, get_value(zeroth, 2)->data);
+}
+
+
 int main() {
     RUN_TEST(test_insert_head);
+    RUN_TEST(test_get_set_value);
     return 0;
 }
