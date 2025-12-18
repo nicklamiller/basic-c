@@ -84,7 +84,7 @@ clean:
 	$(CLEANUP) $(PATHR)*.txt
 
 format:
-	find . -path ./vendor -prune -o -iname "*.c" | xargs clang-format
+	find . -not -path "*/vendor/*" \( -iname "*.c" -o -iname "*.h" \) | xargs clang-format -i
 
 .PRECIOUS: $(PATHB)Test_%.$(TARGET_EXTENSION)
 .PRECIOUS: $(PATHD)%.d
