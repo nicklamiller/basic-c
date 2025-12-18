@@ -84,7 +84,12 @@ clean:
 	$(CLEANUP) $(PATHR)*.txt
 
 format:
-	find . -not -path "*/vendor/*" \( -iname "*.c" -o -iname "*.h" \) | xargs clang-format -i
+	@find . -not -path "*/vendor/*" \( -iname "*.c" -o -iname "*.h" \) | xargs clang-format -i; \
+	if [ -n "$$(git diff --name-only)" ]; then \
+		echo "Error: Some files were reformatted. Please commit the changes."; \
+		git --no-pager diff --name-only; \
+		exit 1; \
+	fi
 
 .PRECIOUS: $(PATHB)Test_%.$(TARGET_EXTENSION)
 .PRECIOUS: $(PATHD)%.d
