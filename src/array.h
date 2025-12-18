@@ -1,8 +1,8 @@
 #pragma once
 
 typedef struct {
-    int* head;
-    int length;
+  int* head;
+  int length;
 } Array;
 
 Array create_array(int length);

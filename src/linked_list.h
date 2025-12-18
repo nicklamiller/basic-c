@@ -1,9 +1,8 @@
 #pragma once
 
-
 typedef struct Node {
-    int data;
-    struct Node* next;
+  int data;
+  struct Node* next;
 } Node;
 
 void print_node(Node* node);
