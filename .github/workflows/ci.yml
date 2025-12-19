@@ -7,12 +7,23 @@ on:
       - main
 
 jobs:
+  clang-format:
+    name: Clang Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            ref: ${{ inputs.git_ref }}
+            submodules: true
+      - name: Run clang-format
+        run: make format
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
             ref: ${{ inputs.git_ref }}
             submodules: true
