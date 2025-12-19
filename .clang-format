@@ -35,7 +35,7 @@ AlignConsecutiveShortCaseStatements:
   Enabled:         false
   AcrossEmptyLines: false
   AcrossComments:  false
-  AlignCaseArrows: false
+  # AlignCaseArrows: false # TODO: Update clang-format on GHA runners, current version doesn't support this
   AlignCaseColons: false
 AlignConsecutiveTableGenBreakingDAGArgColons:
   Enabled:         false
