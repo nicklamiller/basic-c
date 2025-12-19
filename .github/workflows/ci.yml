@@ -16,6 +16,8 @@ jobs:
         with:
             ref: ${{ inputs.git_ref }}
             submodules: true
+      - name: Install latest clang-format
+        run: sudo apt-get install clang-format
       - name: Run clang-format
         run: make format
   unit-tests:
