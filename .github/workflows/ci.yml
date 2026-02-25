@@ -7,12 +7,32 @@ on:
       - main
 
 jobs:
+  clang-format:
+    name: Clang Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+            ref: ${{ inputs.git_ref }}
+            submodules: true
+
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.9.4
+        with:
+          cache: true
+          locked: true
+          pixi-version: v0.62.2
+
+      - name: Run clang-format
+        run: make format
+
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
             ref: ${{ inputs.git_ref }}
             submodules: true
