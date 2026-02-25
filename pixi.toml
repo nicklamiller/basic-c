@@ -2,7 +2,7 @@
 authors = ["Nick Miller <nicklamiller@gmail.com>"]
 channels = ["conda-forge"]
 name = "basic-c"
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
