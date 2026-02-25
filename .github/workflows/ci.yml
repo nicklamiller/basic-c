@@ -16,6 +16,13 @@ jobs:
         with:
             ref: ${{ inputs.git_ref }}
             submodules: true
+
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.9.4
+        with:
+          cache: true
+          locked: true
+          pixi-version: v0.62.2
+
       - name: Run unit tests
         run: make test
-  

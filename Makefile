@@ -28,9 +28,11 @@ BUILD_PATHS = $(PATHB) $(PATHD) $(PATHO) $(PATHR)
 
 SRCT = $(wildcard $(PATHT)*.c)
 
-COMPILE=gcc -c
-LINK=gcc
-DEPEND=gcc -MM -MG -MF
+PIXI_RUN := pixi run
+
+COMPILE=${PIXI_RUN} gcc -c
+LINK=${PIXI_RUN} gcc
+DEPEND=${PIXI_RUN} gcc -MM -MG -MF
 CFLAGS=-I. -I$(PATHU) -I$(PATHS) -DTEST
 
 RESULTS = $(patsubst $(PATHT)Test_%.c,$(PATHR)Test_%.txt,$(SRCT) )
@@ -84,7 +86,7 @@ clean:
 	$(CLEANUP) $(PATHR)*.txt
 
 format:
-	@find . -not -path "*/vendor/*" \( -iname "*.c" -o -iname "*.h" \) | xargs clang-format -i; \
+	@find . -not -path "*/vendor/*" -not -path "*/.pixi/*" \( -iname "*.c" -o -iname "*.h" \) | ${PIXI_RUN} xargs clang-format -i; \
 	if [ -n "$$(git diff --name-only)" ]; then \
 		echo "Error: Some files were reformatted. Please commit the changes."; \
 		git --no-pager diff --name-only; \
