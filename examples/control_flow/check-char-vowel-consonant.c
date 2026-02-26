@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-bool val_is_in_array(char c, const char *arr, size_t n) {
+bool val_is_in_array(char c, const char* arr, size_t n) {
   for (size_t i = 0; i < n; i++) {
     if (arr[i] == c) {
       return true;
